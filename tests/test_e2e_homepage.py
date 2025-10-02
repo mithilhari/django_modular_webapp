@@ -1,6 +1,7 @@
 import pytest
 
 @pytest.mark.e2e
+@pytest.mark.django_db(transaction=True)
 def test_homepage_e2e(page, live_server):
     page.goto(live_server.url)
     assert page.title() != ""  # basic smoke
