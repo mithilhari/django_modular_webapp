@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Home — Modular Django{% endblock %}
+{% block content %}
+  <section>
+    <h2>Latest Notes</h2>
+    {% if notes %}
+      <ul>
+        {% for n in notes %}
+          <li><strong>{{ n.title }}</strong> — {{ n.created_at|date:"Y-m-d H:i" }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No notes yet. Create some in the admin.</p>
+    {% endif %}
+  </section>
+{% endblock %}
